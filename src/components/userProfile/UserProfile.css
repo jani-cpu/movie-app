@@ -1,0 +1,25 @@
+.userProfileContainer {
+  padding-top: 10px;
+  position: absolute;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  color: black;
+  z-index: 9999;
+  right: 27px;
+  top: 60px;
+}
+
+.userProfileContainer p {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.userProfileContainer p:hover {
+  background-color: gray;
+  color: #c50f3c;
+  width: 100%;
+}

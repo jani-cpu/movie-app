@@ -6,10 +6,27 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.headerElement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a242f;
+}
+
+.logoImage {
+  width: 40px;
+  height: 40px;
+}
 .profileImage {
   height: 40px;
   width: 40px;
+  background-color: #1a242f;
+  cursor: pointer;
 }
 .appTitle {
   color: white;
+  background-color: #1a242f;
+  margin-left: 20px;
+  /* width: 60px; */
 }
