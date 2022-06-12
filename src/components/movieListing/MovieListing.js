@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import movieApi from "../axios/Axios";
 import { APIKEY, ID } from "../axios/ApiKey";
 import "./MovieListing.css";
-import { Link, useParams } from "react-router-dom";
 import MovieCard from "../movieCard/MovieCard";
 
 function MovieListing() {
   const [movies, setMovies] = useState(null);
-  const { id } = useParams();
+
   let renderMovies = "";
 
   useEffect(() => {
