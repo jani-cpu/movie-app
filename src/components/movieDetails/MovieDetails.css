@@ -55,3 +55,22 @@
 .section-right {
   margin-left: 30px;
 }
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .movie-section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0px;
+    color: white;
+    font-weight: 400;
+    flex-direction: column-reverse;
+  }
+  .section-right {
+    /* margin-top: 30px; */
+    margin-left: 0px;
+  }
+  .movie-title {
+    font-size: 20px;
+    color: white;
+  }
+}
