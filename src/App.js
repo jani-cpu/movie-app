@@ -11,10 +11,12 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/movieDetal/:Id' element={<MovieDetails />} />
-        </Routes>
+        <div className='container'>
+          <Routes>
+            <Route path='/' exact element={<Home />} />
+            <Route path='/movie/:imdbID' element={<MovieDetails />} />
+          </Routes>
+        </div>
         <Footer />
       </BrowserRouter>
     </div>

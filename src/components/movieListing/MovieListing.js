@@ -1,38 +1,45 @@
-import React, { useEffect, useState } from "react";
-import movieApi from "../axios/Axios";
-import { APIKEY, ID } from "../axios/ApiKey";
-import "./MovieListing.css";
+import React from "react";
+import { useSelector } from "react-redux";
+import { getAllMovies, getAllShows } from "../features/movies/movieSlice";
 import MovieCard from "../movieCard/MovieCard";
-
-function MovieListing() {
-  const [movies, setMovies] = useState(null);
-
-  let renderMovies = "";
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await movieApi.get(
-        `?i=${ID}&apikey=${APIKEY}&type="movie"&s="harry"`
-      );
-      setMovies(response.data.Search);
-    };
-    fetchMovies();
-  }, []);
+import "./MovieListing.css";
+const MovieListing = () => {
+  const movies = useSelector(getAllMovies);
+  const shows = useSelector(getAllShows);
+  let renderMovies,
+    renderShows = "";
 
   renderMovies =
-    movies &&
-    movies.map((item, index) => {
-      return <MovieCard key={index} data={item} />;
-    });
+    movies.Response === "True" ? (
+      movies.Search.map((movie, index) => (
+        <MovieCard key={index} data={movie} />
+      ))
+    ) : (
+      <div className='movies-error'>
+        <h3>{movies.Error}</h3>
+      </div>
+    );
 
+  renderShows =
+    shows.Response === "True" ? (
+      shows.Search.map((movie, index) => <MovieCard key={index} data={movie} />)
+    ) : (
+      <div className='shows-error'>
+        <h3>{shows.Error}</h3>
+      </div>
+    );
   return (
-    <div className='movie-wraper'>
+    <div className='movie-wrapper'>
       <div className='movie-list'>
         <h2>Movies</h2>
         <div className='movie-container'>{renderMovies}</div>
       </div>
+      <div className='show-list'>
+        <h2>Shows</h2>
+        <div className='movie-container'>{renderShows}</div>
+      </div>
     </div>
   );
-}
+};
 
 export default MovieListing;
