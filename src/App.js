@@ -5,6 +5,7 @@ import MovieDetails from "./components/movieDetails/MovieDetails";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Login from "./components/login/Login";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/' exact element={<Home />} />
+            <Route path='/login' exact element={<Login />} />
             <Route path='/movie/:imdbID' element={<MovieDetails />} />
           </Routes>
         </div>

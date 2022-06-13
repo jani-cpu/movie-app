@@ -9,6 +9,9 @@ function Header() {
   const userShowHandler = () => {
     setShowModal(!showModal);
   };
+  // const userDntShowHandler = () => {
+  //   setShowModal(false);
+  // };
   return (
     <div className='header'>
       <Link to='/'>
@@ -23,11 +26,12 @@ function Header() {
       </Link>
       <img
         onClick={userShowHandler}
+        // onMouseLeave={userDntShowHandler}
         className='profileImage'
         src={userImage}
         alt='MovieApp'
       />
-      {showModal && <UserProfile />}
+      {showModal && <UserProfile userShowHandler={userShowHandler} />}
     </div>
   );
 }
